@@ -1,0 +1,53 @@
+---
+title: "MAC Address Vendor Lookup & Device Identification Tools"
+sidebarTitle: "Device Info"
+description: "MAC address vendor lookup tools for identifying network device manufacturers during network reconnaissance and incident investigation."
+---
+
+MAC address lookup is a foundational technique in network forensics and reconnaissance. Every network interface card is assigned a MAC address whose first three octets (the Organizationally Unique Identifier, or OUI) identify the device manufacturer. During network scans, ARP table reviews, or incident investigations, identifying the vendor behind a MAC address helps classify unknown devices — distinguishing between routers, cameras, printers, mobile phones, and IoT sensors without needing active interrogation. This is especially valuable when investigating rogue devices on a network or correlating scan results with device types.
+
+<Tip>
+  MAC vendor lookup is most useful during network segmentation reviews and IoT device identification. Combine with Shodan filters for device-specific vulnerability research.
+</Tip>
+
+<Note>
+  Modern operating systems including Android, iOS, and Windows 10+ implement MAC address randomization for probe requests and, in some cases, for active connections. This reduces the reliability of vendor identification for active mobile devices, since the MAC seen on the network may not reflect the actual hardware manufacturer.
+</Note>
+
+<CardGroup cols={2}>
+  <Card
+    title="MACVendorLookup.com"
+    icon="magnifying-glass"
+    href="https://www.macvendorlookup.com/"
+  >
+    Look up the vendor for a specific MAC Address using the IEEE OUI registry.
+  </Card>
+  <Card
+    title="macvendors.com"
+    icon="network-wired"
+    href="https://macvendors.com/"
+  >
+    Find MAC Address Vendors quickly with a clean, fast lookup interface.
+  </Card>
+  <Card
+    title="macaddress.io"
+    icon="database"
+    href="https://macaddress.io/"
+  >
+    MAC address vendor lookup with additional device details and an API for programmatic access.
+  </Card>
+  <Card
+    title="maclookup.app"
+    icon="magnifying-glass"
+    href="https://maclookup.app/"
+  >
+    Find the vendor name of a device by entering an OUI or a full MAC address.
+  </Card>
+  <Card
+    title="macvendors.co"
+    icon="microchip"
+    href="https://macvendors.co/"
+  >
+    Get vendor name of your network device using its MAC address with a simple lookup interface.
+  </Card>
+</CardGroup>

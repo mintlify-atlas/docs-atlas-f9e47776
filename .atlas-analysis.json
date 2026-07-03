@@ -1,0 +1,113 @@
+{
+  "projectType": "general",
+  "projectName": "Awesome Hacker Search Engines",
+  "projectDescription": "A curated list of awesome search engines useful during Penetration testing, Vulnerability assessments, Red/Blue Team operations, Bug Bounty, and OSINT investigations.",
+  "theme": "aspen",
+  "primaryColor": "#e63946",
+  "lightColor": "#ff6b6b",
+  "darkColor": "#c1121f",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Overview",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "introduction",
+              "how-to-use"
+            ]
+          },
+          {
+            "group": "Reconnaissance",
+            "pages": [
+              "categories/servers",
+              "categories/attack-surface",
+              "categories/domains",
+              "categories/dns",
+              "categories/certificates",
+              "categories/urls"
+            ]
+          },
+          {
+            "group": "Vulnerabilities & Exploits",
+            "pages": [
+              "categories/vulnerabilities",
+              "categories/exploits"
+            ]
+          },
+          {
+            "group": "OSINT & People",
+            "pages": [
+              "categories/email-addresses",
+              "categories/phone-numbers",
+              "categories/social-networks",
+              "categories/people",
+              "categories/images"
+            ]
+          },
+          {
+            "group": "Threat Intelligence & Incidents",
+            "pages": [
+              "categories/threat-intelligence",
+              "categories/credentials",
+              "categories/leaks",
+              "categories/web-history"
+            ]
+          },
+          {
+            "group": "Specialized",
+            "pages": [
+              "categories/code",
+              "categories/wifi-networks",
+              "categories/device-information",
+              "categories/hidden-services",
+              "categories/surveillance-cameras",
+              "categories/files",
+              "categories/crypto",
+              "categories/vehicle"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "keyFeatures": [
+    "Comprehensive list of 400+ security-focused search engines and tools",
+    "Organized into 25+ categories covering all phases of penetration testing",
+    "Covers servers, vulnerabilities, exploits, OSINT, threat intelligence, and more",
+    "Regularly updated community-maintained list",
+    "Useful for Bug Bounty, Red/Blue Team operations, and Vulnerability Assessments",
+    "Includes dark web / hidden services resources",
+    "Covers credential and data leak databases",
+    "Includes both free and commercial tools"
+  ],
+  "publicApiSurface": [
+    "General Search Engines",
+    "Servers (Shodan, Censys, FOFA, ZoomEye, etc.)",
+    "Vulnerabilities (NVD, CVE, VulDB, etc.)",
+    "Exploits (Exploit-DB, Sploitus, GTFOBins, etc.)",
+    "Attack Surface (FullHunt, BinaryEdge, SecurityTrails, etc.)",
+    "Code Search (GitHub, grep.app, SearchCode, etc.)",
+    "Email Addresses (Hunter.io, PhoneBook, etc.)",
+    "Domains (Subdomain finders, WHOIS tools, etc.)",
+    "URLs (URLScan, URLVoid, CommonCrawl, etc.)",
+    "DNS (DNSDumpster, RapidDNS, Chaos, etc.)",
+    "Certificates (crt.sh, CertSpotter, Censys, etc.)",
+    "WiFi Networks (Wigle.net, wifimap.io, etc.)",
+    "Device Information (MAC lookup tools)",
+    "Credentials (HaveIBeenPwned, Dehashed, etc.)",
+    "Leaks (WikiLeaks, Snusbase, BreachForums, etc.)",
+    "Hidden Services (AHMIA, OnionLand, etc.)",
+    "Social Networks (for OSINT/social engineering)",
+    "Phone Numbers (NumLookup, WhitePages, etc.)",
+    "Images (Reverse image search, EXIF tools, etc.)",
+    "Threat Intelligence (MITRE ATT&CK, VirusTotal, etc.)",
+    "Web History (Wayback Machine, Archive.ph, etc.)",
+    "Files (Pastebin, Mega, etc.)",
+    "Surveillance Cameras (Insecam, WorldCams, etc.)",
+    "Crypto (ChainAbuse, BlockChair, etc.)",
+    "People (TruePeopleSearch, Pipl, etc.)",
+    "Vehicle (FaxVin, EpicVin, license plate lookups)"
+  ]
+}

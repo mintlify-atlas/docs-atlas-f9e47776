@@ -1,0 +1,186 @@
+---
+title: "Reverse Image Search & Image Analysis Tools"
+sidebarTitle: "Images"
+description: "Reverse image search engines, facial recognition tools, EXIF metadata extractors, and image forensics platforms for OSINT investigations."
+---
+
+Image OSINT is a multi-layered discipline. At its most basic, reverse image search lets you discover where an image appears online — useful for debunking impersonation, detecting stolen profile photos, or tracing the origin of a suspicious picture. Going deeper, facial recognition tools can match an unknown face against indexed public photos to identify a subject. EXIF metadata extraction pulls hidden data baked into image files — GPS coordinates, camera model, software used, and timestamp — which can geolocate a photo or reveal when and how it was captured. Image forensics tools detect manipulation and inconsistencies in pixel-level data, helping verify whether a photo has been altered.
+
+<Warning>
+  Facial recognition tools raise significant legal and ethical concerns. Use of these services to identify individuals without their consent may be unlawful under GDPR, the Illinois Biometric Information Privacy Act (BIPA), and other regional privacy frameworks. Many platforms also prohibit using facial recognition against their users. Always confirm the legality of facial recognition use within your jurisdiction and engagement scope before proceeding.
+</Warning>
+
+## Reverse Image Search
+
+<CardGroup cols={2}>
+  <Card
+    title="Google Image Search"
+    icon="magnifying-glass"
+    href="https://images.google.com/"
+  >
+    The most comprehensive image search on the web — upload an image or paste a URL to find matches.
+  </Card>
+  <Card
+    title="Baidu Image"
+    icon="magnifying-glass"
+    href="https://image.baidu.com/"
+  >
+    Baidu's image search engine — particularly effective for images of Chinese origin or context.
+  </Card>
+  <Card
+    title="Yahoo Image"
+    icon="magnifying-glass"
+    href="https://images.search.yahoo.com/"
+  >
+    Yahoo image search — an additional index useful for cross-referencing results.
+  </Card>
+  <Card
+    title="Yandex Image"
+    icon="magnifying-glass"
+    href="https://www.yandex.com/images/"
+  >
+    Yandex's reverse image search is notably strong for identifying people and Eastern European content.
+  </Card>
+  <Card
+    title="Bing Visual Search"
+    icon="magnifying-glass"
+    href="https://www.bing.com/visualsearch"
+  >
+    See it, search it — Bing's visual search identifies objects, products, and similar images.
+  </Card>
+  <Card
+    title="Reverse Image Search"
+    icon="image"
+    href="https://www.reverseimagesearch.org/"
+  >
+    Super-fast image finder that queries multiple search engines to find similar images online.
+  </Card>
+  <Card
+    title="Reverse Image"
+    icon="image"
+    href="https://reverseimage.net/"
+  >
+    Find where images appear online with this multi-engine reverse image search aggregator.
+  </Card>
+  <Card
+    title="TinEye"
+    icon="magnifying-glass"
+    href="https://tineye.com/"
+  >
+    Image search and recognition company — find where an image first appeared and track its spread.
+  </Card>
+  <Card
+    title="Pixsy"
+    icon="image"
+    href="https://www.pixsy.com"
+  >
+    Find and fight image theft — monitors where your images appear across the web.
+  </Card>
+  <Card
+    title="Karmadecay"
+    icon="magnifying-glass"
+    href="http://karmadecay.com/"
+  >
+    Reverse image search specifically for Reddit — find reposts and original sources of images.
+  </Card>
+  <Card
+    title="Infringement Report"
+    icon="image"
+    href="https://infringement.report/"
+  >
+    The web's best image copyright infringement search tool for tracking unauthorized use.
+  </Card>
+  <Card
+    title="Flickr Search"
+    icon="image"
+    href="https://flickr.com/search/"
+  >
+    Home to tens of billions of photos and 2 million groups — search a massive photo archive.
+  </Card>
+  <Card
+    title="Sogou"
+    icon="magnifying-glass"
+    href="https://pic.sogou.com/"
+  >
+    Chinese technology company search engine — effective for images with ties to Chinese platforms.
+  </Card>
+  <Card
+    title="Same Energy"
+    icon="image"
+    href="https://same.energy/"
+  >
+    Visual search tool that finds aesthetically similar images — useful for finding related content.
+  </Card>
+  <Card
+    title="Pixabay"
+    icon="image"
+    href="https://pixabay.com/"
+  >
+    Search stunning royalty-free images — useful for checking whether a "personal" photo is stock art.
+  </Card>
+  <Card
+    title="ScamDigger"
+    icon="magnifying-glass"
+    href="https://www.scamdigger.com/picsearch.php"
+  >
+    Check if a picture belongs to someone else, has been used by others, or is already scam-listed.
+  </Card>
+</CardGroup>
+
+## Facial Recognition & Image Analysis
+
+<CardGroup cols={2}>
+  <Card
+    title="Facecheck.id"
+    icon="face-smile"
+    href="https://facecheck.id/"
+  >
+    Search for people by photo and verify you are talking to the person they claim to be.
+  </Card>
+  <Card
+    title="Pimeyes"
+    icon="face-smile"
+    href="https://pimeyes.com/"
+  >
+    Face search engine and reverse image search — find where a face appears across the open web.
+  </Card>
+  <Card
+    title="Pictriev"
+    icon="face-smile"
+    href="http://www.pictriev.com/"
+  >
+    Find look-alike celebrities on the web using face recognition technology.
+  </Card>
+  <Card
+    title="FotoForensics"
+    icon="camera"
+    href="https://fotoforensics.com/"
+  >
+    Tools and training for digital picture analysis, including error level analysis, metadata, and tutorials.
+  </Card>
+  <Card
+    title="Jimpl"
+    icon="camera"
+    href="https://jimpl.com/"
+  >
+    Online photo metadata and EXIF data viewer — reveals GPS, camera model, timestamps, and more.
+  </Card>
+  <Card
+    title="Exif data"
+    icon="camera"
+    href="http://exifdata.com/"
+  >
+    Online application that lets you take a deeper look at your favorite images' embedded metadata.
+  </Card>
+  <Card
+    title="Image Identify"
+    icon="magnifying-glass"
+    href="https://www.imageidentify.com/"
+  >
+    Image recognition site — drag your image and identify objects, scenes, and content automatically.
+  </Card>
+</CardGroup>
+
+<Tip>
+  **FotoForensics** and **Jimpl** are excellent for extracting EXIF metadata from images — useful for geolocating photos or verifying authenticity. When a subject shares an image, always check its metadata before assuming the location or timestamp is accurate, as metadata can be stripped or falsified.
+</Tip>

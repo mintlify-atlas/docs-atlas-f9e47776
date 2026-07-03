@@ -1,0 +1,106 @@
+---
+title: "DNS Reconnaissance & Passive DNS Tools"
+sidebarTitle: "DNS"
+description: "DNS lookup, passive DNS databases, zone analysis, and DNS monitoring tools for security research and threat intelligence."
+---
+
+DNS reconnaissance is fundamental to understanding the infrastructure behind any domain or IP address. Active DNS enumeration directly queries name servers to discover records, while **passive DNS** databases collect and archive DNS responses observed over time across large sensor networks — revealing historical records, infrastructure pivots, and hosting relationships without sending a single packet to the target. Passive DNS is especially powerful for threat intelligence: it can reveal when a malicious domain was first registered, what IP addresses it pointed to historically, and which other malicious domains shared the same infrastructure. Together, active and passive DNS techniques provide a comprehensive view of an organization's — or adversary's — internet footprint.
+
+<CardGroup cols={2}>
+  <Card title="DNSDumpster" icon="dump" href="https://dnsdumpster.com/">
+    DNS recon &amp; research, find &amp; lookup dns records — free and comprehensive.
+  </Card>
+  <Card title="Chaos" icon="circle-nodes" href="https://chaos.projectdiscovery.io/#/">
+    Enhance research and analyse changes around DNS for better insights — from ProjectDiscovery.
+  </Card>
+  <Card title="RapidDNS" icon="bolt" href="https://rapiddns.io/">
+    DNS query tool which make querying subdomains or sites of a same IP easy.
+  </Card>
+  <Card title="DNSdb" icon="database" href="https://docs.farsightsecurity.com/#dnsdb">
+    Passive DNS historical database — the gold standard for passive DNS research by Farsight Security.
+  </Card>
+  <Card title="Omnisint" icon="rotate" href="https://omnisint.io/reverse-dns-lookup">
+    Reverse DNS lookup powered by a large passive DNS dataset.
+  </Card>
+  <Card title="HackerTarget" icon="crosshairs" href="https://hackertarget.com/ip-tools/">
+    Collect information about IP Addresses, Networks, Web Pages and DNS records.
+  </Card>
+  <Card title="passivedns.mnemonic.no" icon="clock-rotate-left" href="https://passivedns.mnemonic.no/">
+    Web interface for querying passive DNS data collected in Mnemonic's malware lab.
+  </Card>
+  <Card title="ptrarchive.com" icon="archive" href="http://ptrarchive.com/">
+    Over 230 billion reverse DNS entries from 2008 to the present.
+  </Card>
+  <Card title="dnshistory.org" icon="timeline" href="http://dnshistory.org/">
+    Domain Name System Historical Record Archive.
+  </Card>
+  <Card title="DNSTwister" icon="shield-virus" href="https://dnstwister.report/">
+    The anti-phishing domain name search engine and DNS monitoring service.
+  </Card>
+  <Card title="DNSviz" icon="diagram-project" href="https://dnsviz.net/">
+    Tool for visualizing the status of a DNS zone — great for DNSSEC analysis.
+  </Card>
+  <Card title="C99.nl" icon="code" href="https://api.c99.nl/">
+    Over 57 quality API's and growing — includes DNS lookup tools.
+  </Card>
+  <Card title="wannabe1337.xyz" icon="toolbox" href="https://wannabe1337.xyz/">
+    Online Tools including DNS research utilities.
+  </Card>
+  <Card title="DNSlytics" icon="magnifying-glass-chart" href="https://dnslytics.com/">
+    Find out everything about a domain name, IP address or provider.
+  </Card>
+  <Card title="dnsrepo.noc.org" icon="folder-open" href="https://dnsrepo.noc.org/">
+    DNS Database Repository Search.
+  </Card>
+  <Card title="DNSSpy" icon="eye" href="https://dnsspy.io/">
+    Monitor, validate and verify your DNS configurations.
+  </Card>
+  <Card title="ZETAlytics" icon="globe" href="https://zetalytics.com/">
+    Unrivalled geographic diversity and exclusive global network visibility in searchable datasets for cyber security analysts.
+  </Card>
+  <Card title="AskDNS" icon="circle-question" href="https://askdns.com/">
+    Lookup Connected Domain Names and IP Addresses.
+  </Card>
+  <Card title="360 PassiveDNS.CN" icon="flag" href="https://passivedns.cn/">
+    Biggest public available passive DNS database in China designed for security and research purposes.
+  </Card>
+  <Card title="MXtoolbox" icon="envelope" href="https://mxtoolbox.com/SuperTool.aspx">
+    All of your MX record, DNS, blacklist and SMTP diagnostics in one integrated tool.
+  </Card>
+  <Card title="NSLookup.io" icon="terminal" href="https://www.nslookup.io/">
+    Find all DNS records for a domain name using this online tool.
+  </Card>
+  <Card title="Robtex DNS Lookup" icon="network-wired" href="https://www.robtex.com/dns-lookup/">
+    Get detailed information on the nameservers associated with a domain name.
+  </Card>
+  <Card title="DNSMap" icon="map" href="https://dnsmap.io/">
+    Worldwide DNS Propagation Checker.
+  </Card>
+  <Card title="Validin" icon="check-double" href="https://app.validin.com/">
+    Massive collection of DNS records with free DNS history search.
+  </Card>
+  <Card title="dnslookup.pro" icon="magnifying-glass" href="https://dnslookup.pro/">
+    Advanced DNS Record Analysis &amp; Troubleshooting.
+  </Card>
+  <Card title="ViewDNS.info" icon="binoculars" href="https://viewdns.info/">
+    A web-based toolkit offering over 25 DNS and network intelligence tools for reconnaissance, diagnostics, and research.
+  </Card>
+  <Card title="dnsaudit.io" icon="triangle-exclamation" href="https://dnsaudit.io/">
+    Find DNS misconfigurations, risks and security gaps.
+  </Card>
+</CardGroup>
+
+## DNS Enumeration Techniques & Passive DNS
+
+**Active DNS enumeration** involves directly querying resolvers or performing zone transfers to discover all records associated with a domain — A, AAAA, MX, TXT, CNAME, NS, and SOA records each reveal different infrastructure details. DNS brute-forcing against common subdomain wordlists and permutation-based discovery can uncover hundreds of subdomains that would otherwise remain hidden.
+
+**Passive DNS** takes a fundamentally different approach: rather than querying targets directly, it collects DNS responses observed passively at large sensor networks — ISP resolvers, DNS sinkholes, and security research infrastructure. The result is a historical archive of who resolved what, when. This is invaluable for:
+
+- **Threat investigation**: tracing a malicious domain's hosting history to find related infrastructure and pivot to new indicators
+- **Incident response**: reconstructing what domains communicated with internal hosts during a breach window
+- **Typosquatting detection**: monitoring for newly registered domains that impersonate your brand
+- **Infrastructure mapping**: seeing all domains that have ever resolved to a given IP address
+
+<Tip>
+  Passive DNS tools like DNSdb and passivedns.mnemonic.no are especially useful for threat intelligence — they reveal infrastructure changes without making any active queries.
+</Tip>

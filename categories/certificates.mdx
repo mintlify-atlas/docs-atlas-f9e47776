@@ -1,0 +1,62 @@
+---
+title: "TLS Certificate Transparency Search Tools"
+sidebarTitle: "Certificates"
+description: "Search Certificate Transparency logs to discover subdomains, monitor for unauthorized certificates, and investigate SSL/TLS infrastructure."
+---
+
+Certificate Transparency (CT) is an open framework — mandated by major browsers since 2018 — that requires Certificate Authorities (CAs) to publicly log every TLS certificate they issue to append-only, cryptographically verifiable logs. This was designed to detect misissued or fraudulent certificates, but it has an important side effect for security researchers: **every subdomain that receives a TLS certificate is permanently and publicly recorded**. CT log search tools let you enumerate subdomains, monitor for unauthorized certificate issuance, investigate SSL/TLS infrastructure, and detect brand impersonation or phishing domains — all without ever touching the target's servers.
+
+**crt.sh**, operated by Sectigo (formerly Comodo), is the most widely used CT log search interface. By querying `%.example.com`, you can retrieve every certificate ever issued for any subdomain of a domain — often revealing development environments, internal tools, staging servers, and forgotten assets that never appeared in public DNS records.
+
+<CardGroup cols={2}>
+  <Card title="Crt.sh" icon="certificate" href="https://crt.sh/">
+    Certificate Search — the most widely used Certificate Transparency log search interface.
+  </Card>
+  <Card title="CTSearch" icon="magnifying-glass" href="https://ui.ctsearch.entrust.com/ui/ctsearchui">
+    Certificate Transparency Search Tool by Entrust — search across multiple CT logs.
+  </Card>
+  <Card title="tls.bufferover.run" icon="bolt" href="https://tls.bufferover.run/">
+    Quickly find certificates in IPv4 space — enumerate certs by IP range.
+  </Card>
+  <Card title="CertSpotter" icon="eye" href="https://sslmate.com/certspotter/">
+    Monitors your domains for expiring, unauthorized, and invalid SSL certificates.
+  </Card>
+  <Card title="SynapsInt" icon="brain" href="https://synapsint.com/">
+    The unified OSINT research tool — correlates certificate data with other intelligence.
+  </Card>
+  <Card title="Censys Search - Certificates" icon="server" href="https://search.censys.io/#">
+    Certificates Search — query Censys's comprehensive TLS certificate database.
+  </Card>
+  <Card title="ciphersuite.info" icon="lock" href="https://ciphersuite.info/">
+    TLS Ciphersuite Search — search for a particular cipher suite by IANA, OpenSSL or GnuTLS name format.
+  </Card>
+  <Card title="certificatedetails" icon="file-certificate" href="https://certificatedetails.com/">
+    Online certificate viewer — inspect and download certificates from your browser.
+  </Card>
+  <Card title="FacebookCT" icon="facebook" href="https://developers.facebook.com/tools/ct/search/">
+    Search for certificates issued for a given domain and subscribe to notifications from Facebook regarding new certificates.
+  </Card>
+  <Card title="certs.io" icon="shield" href="https://certs.io/">
+    Search TLS certificates across the internet.
+  </Card>
+  <Card title="ODIN Certificates Search" icon="crosshairs" href="https://getodin.com/search/certificates">
+    ODIN Certificates Search — powerful certificate enumeration within the ODIN platform.
+  </Card>
+</CardGroup>
+
+## How Certificate Transparency Aids Security Research
+
+### Subdomain Discovery
+
+The most immediately useful application of CT log searching is **subdomain enumeration**. Because organizations must obtain TLS certificates for any HTTPS service, CT logs create a near-complete record of every subdomain that was ever secured with a certificate. Unlike DNS brute-forcing (which is limited by wordlist quality) or search engine dorking (which only indexes publicly crawled content), CT log search is authoritative — if a subdomain had a certificate, it appears in the log.
+
+### Monitoring for Unauthorized Certificates
+
+CT monitoring tools like CertSpotter allow organizations to receive real-time alerts whenever a new certificate is issued for their domains. This is critical for detecting:
+- **Certificate misissuance**: a CA incorrectly issuing a certificate for a domain it shouldn't have
+- **Phishing infrastructure**: attackers obtaining valid certificates for lookalike domains (e.g., `paypa1.com`, `secure-bank-login.com`)
+- **Brand impersonation**: fraudulent domains designed to deceive users or employees
+
+### Investigating SSL/TLS Infrastructure
+
+Certificate metadata — including Common Name, Subject Alternative Names (SANs), issuing CA, validity period, and certificate fingerprint — provides rich intelligence about an organization's infrastructure. A single certificate might reveal dozens of internal hostnames via SANs, expose the technology stack through certificate organization fields, or link multiple seemingly unrelated domains through shared certificate issuer patterns.

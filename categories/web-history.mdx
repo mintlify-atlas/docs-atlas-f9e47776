@@ -1,0 +1,81 @@
+---
+title: "Web Archive & Cached Page Search Tools"
+sidebarTitle: "Web History"
+description: "Web archiving services, cached page retrievers, and historical snapshot tools for finding deleted content, tracking website changes, and OSINT research."
+---
+
+Web history tools are indispensable in both offensive security research and defensive investigations. Security researchers use web archives to uncover content that was once publicly accessible — deleted admin panels, temporarily exposed configuration files, old robots.txt entries revealing hidden paths, API keys briefly committed to public pages, and previous versions of login portals that disclose software versions vulnerable to known exploits. In incident response and digital forensics, archived snapshots serve as timestamped evidence, allowing analysts to reconstruct what a site looked like before it was defaced or taken offline. OSINT investigators rely on these tools to track organizational changes, verify historical claims, and recover information that subjects have attempted to erase. From the massive Wayback Machine to smaller national archives, each service has distinct strengths in geographic focus and archival depth.
+
+<Tip>
+  The Wayback Machine (web.archive.org) is invaluable for finding old robots.txt files, backup files, or sensitive information that was briefly exposed and then removed. Try appending `/robots.txt` or common backup paths to archived snapshots of a target domain to uncover historical exposure.
+</Tip>
+
+<CardGroup cols={2}>
+  <Card
+    title="Web Archive (Wayback Machine)"
+    icon="clock-rotate-left"
+    href="https://web.archive.org/"
+  >
+    Explore more than 702 billion web pages saved over time — the Internet Archive's Wayback Machine is the world's largest and most comprehensive public web archive.
+  </Card>
+  <Card
+    title="Archive.ph"
+    icon="archive"
+    href="https://archive.ph/"
+  >
+    Create a copy of a webpage that will always be up even if the original link is down — useful for preserving evidence and archiving pages before they are deleted.
+  </Card>
+  <Card
+    title="CachedPages"
+    icon="file"
+    href="http://www.cachedpages.com/"
+  >
+    Get the cached page of any URL — a quick way to retrieve recently cached versions of web pages from major search engines including Google and Bing.
+  </Card>
+  <Card
+    title="stored.website"
+    icon="archive"
+    href="https://stored.website/"
+  >
+    View cached web pages and websites — a straightforward tool for retrieving and browsing stored snapshots of web content for research purposes.
+  </Card>
+  <Card
+    title="CommonCrawl"
+    icon="globe"
+    href="https://commoncrawl.org/"
+  >
+    Open repository of web crawl data — a petabyte-scale public dataset of web crawls that researchers can query for historical URL discovery and content analysis.
+  </Card>
+  <Card
+    title="UK Web Archive"
+    icon="clock-rotate-left"
+    href="https://www.webarchive.org.uk/ukwa/"
+  >
+    Collects millions of websites each year, preserving them for future generations — the British Library's national web archive with a focus on UK domains and content.
+  </Card>
+  <Card
+    title="Arquivo"
+    icon="archive"
+    href="https://arquivo.pt/"
+  >
+    Non-profit service that maintains information published on the web of interest to the Portuguese community — archives Portuguese-language and Portugal-focused web content.
+  </Card>
+  <Card
+    title="Archive-It"
+    icon="file"
+    href="https://archive-it.org/"
+  >
+    An archive of digital government and non-government organization (NGO) documents and reports — a subscription service from the Internet Archive for institutional web archiving.
+  </Card>
+  <Card
+    title="HAW (Croatian Web Archive)"
+    icon="globe"
+    href="https://haw.nsk.hr/en/"
+  >
+    The Croatian Web Archive maintained by the National and University Library in Zagreb — preserves Croatian web heritage with deep historical coverage of .hr domains.
+  </Card>
+</CardGroup>
+
+<Note>
+  Different web archives have different geographic and temporal coverage. The Wayback Machine has the broadest global scope but may have gaps for smaller or newer sites. National archives like the UK Web Archive, Arquivo (Portugal), and HAW (Croatia) offer deeper coverage of country-specific domains and content in local languages. For comprehensive research, query multiple archives to triangulate historical snapshots and maximize coverage of the target domain.
+</Note>

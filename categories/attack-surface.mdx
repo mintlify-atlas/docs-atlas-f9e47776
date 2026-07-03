@@ -1,0 +1,95 @@
+---
+title: "Attack Surface Discovery & Mapping Tools"
+sidebarTitle: "Attack Surface"
+description: "Tools for discovering and mapping an organization's external attack surface, including exposed assets, IP ranges, ASNs, and cloud resources."
+---
+
+Attack Surface Management (ASM) is the practice of continuously identifying, inventorying, and monitoring all external-facing assets belonging to an organization — from IP addresses and cloud storage buckets to ASN ranges, subdomains, and third-party SaaS integrations. As organizations grow and adopt cloud-native architectures, their digital footprint expands faster than security teams can track manually. ASM tools automate this discovery process, giving defenders an outside-in view of what attackers see when they target an organization. During penetration tests and red team engagements, these same tools let security professionals map an organization's exposure with the same accuracy and breadth that a real adversary would.
+
+<CardGroup cols={2}>
+  <Card title="FullHunt.io" icon="crosshairs" href="https://fullhunt.io/">
+    Attack surface database of the entire Internet — comprehensive asset discovery and monitoring.
+  </Card>
+  <Card title="BinaryEdge" icon="server" href="https://www.binaryedge.io/">
+    We scan the web and gather data for you — internet scanning with structured threat intelligence.
+  </Card>
+  <Card title="Censys ASM" icon="shield" href="https://censys.io/">
+    Attack Surface Management Solutions — continuous discovery and monitoring of internet-facing assets.
+  </Card>
+  <Card title="RedHunt Labs" icon="flag" href="https://redhuntlabs.com/">
+    Discover your Attack Surface, Continuously — automated recon and exposure management.
+  </Card>
+  <Card title="SecurityTrails" icon="magnifying-glass" href="https://securitytrails.com/">
+    The Total Internet Inventory — historical DNS, WHOIS, and IP intelligence at scale.
+  </Card>
+  <Card title="overcast-security.com" icon="cloud" href="https://overcast-security.com/">
+    We make tracking your external attack surface easy.
+  </Card>
+  <Card title="IPInfo.io" icon="location-dot" href="https://ipinfo.io/">
+    The trusted source for IP address data — geolocation, ASN, and company attribution.
+  </Card>
+  <Card title="IPData.co" icon="globe" href="https://ipdata.co/">
+    IP Geolocation and Threat Intelligence API — enrich IPs with threat and org context.
+  </Card>
+  <Card title="NetworksDB" icon="network-wired" href="https://networksdb.io/">
+    Information about the public IPv4 and IPv6 addresses, networks and domains owned by companies and organisations across the world.
+  </Card>
+  <Card title="ASNlookup" icon="sitemap" href="https://asnlookup.com/">
+    Quickly lookup updated information about specific Autonomous System Number (ASN), Organization, CIDR, or registered IP addresses (IPv4 and IPv6) among other relevant data.
+  </Card>
+  <Card title="BGPtools" icon="diagram-project" href="https://bgp.tools/">
+    Browse the Internet ecosystem — BGP routing tables, ASN data, and peering intelligence.
+  </Card>
+  <Card title="BGPview" icon="eye" href="https://bgpview.io/">
+    Debug and investigate information about IP addresses, ASN, IXs, BGP, ISPs, Prefixes and Domain names.
+  </Card>
+  <Card title="BigDataCloud" icon="database" href="https://www.bigdatacloud.com/">
+    The API provides comprehensive location and network data.
+  </Card>
+  <Card title="RADb" icon="route" href="https://www.radb.net/query">
+    The world's largest public routing registry — authoritative BGP routing policy data.
+  </Card>
+  <Card title="Deepinfo" icon="layer-group" href="https://www.deepinfo.com/">
+    Empower your security with the most comprehensive Internet data.
+  </Card>
+  <Card title="CloudFlare Radar" icon="chart-line" href="https://radar.cloudflare.com/">
+    Global Internet traffic, attack, and technology trends and insights.
+  </Card>
+  <Card title="IPIP" icon="map-location-dot" href="https://en.ipip.net/">
+    The only IP Database based on real time BGP/ASN data analytics.
+  </Card>
+  <Card title="Hurricane Electric BGP" icon="bolt" href="https://bgp.he.net/">
+    The Hurricane Electric BGP Toolkit is free to use. Look up ASN from IP address.
+  </Card>
+  <Card title="Webscout" icon="radar" href="https://webscout.io/">
+    From threat intelligence to attack surface discovery, asset management, and brand protection.
+  </Card>
+  <Card title="Awseye" icon="aws" href="https://awseye.com/">
+    Open-source intelligence (OSINT) and reconnaissance service tracking publicly accessible AWS data.
+  </Card>
+  <Card title="S4E" icon="shield-halved" href="https://app.s4e.io/">
+    Continuous Threat Exposure Management platform for comprehensive scanning and vulnerability detection of digital assets like domains, subdomains, IP addresses, and web apps.
+  </Card>
+  <Card title="ipquery.io" icon="code" href="https://ipquery.io/">
+    The IP Address API for Developers.
+  </Card>
+  <Card title="domaincodex.com" icon="book" href="https://www.domaincodex.com/">
+    Research 500m+ root domain information and all associated data, including records, IP address, page metadata and much more.
+  </Card>
+  <Card title="APIfreaks.com" icon="plug" href="https://apifreaks.com/">
+    Unified API hub providing DNS, WHOIS, IP geolocation, screenshots and commodity data APIs for developers and security teams.
+  </Card>
+  <Card title="HackMyIP" icon="toolbox" href="https://hackmyip.com/">
+    Free privacy and security toolkit with 19+ tools including IP lookup, DNS lookup, DNS leaks test and many others.
+  </Card>
+</CardGroup>
+
+## Attack Surface Management in Practice
+
+Modern attack surface management goes far beyond a simple port scan. Continuous monitoring platforms track changes over time — alerting when a new subdomain appears, a cloud bucket becomes public, or an unintended service is exposed on a previously clean IP. During **penetration tests**, these tools accelerate the initial reconnaissance phase by rapidly enumerating IP ranges, ASNs, cloud resources, and third-party technology relationships. During **red team engagements**, they help operators identify the most likely entry points an adversary would exploit. For **blue teams and defenders**, they provide the outside-in perspective needed to prioritize remediation, reduce mean time to detect (MTTD), and ensure that no asset goes unmonitored.
+
+ASN and BGP tools are particularly valuable for discovering an organization's full IP range ownership, which is often broader than what appears in a simple WHOIS lookup. Cloud-specific tools like Awseye help surface publicly accessible AWS resources that may have been accidentally exposed.
+
+<Note>
+  Attack surface tools are especially valuable during the initial reconnaissance phase of a penetration test or red team engagement.
+</Note>

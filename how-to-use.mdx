@@ -1,0 +1,249 @@
+---
+title: "How to Use Hacker Search Engines Effectively"
+sidebarTitle: "How to Use"
+description: "Practical workflows for using security search engines during penetration tests, bug bounty hunts, OSINT investigations, and threat intelligence operations."
+---
+
+Security search engines are most powerful when used systematically — not in isolation, but as a layered, ordered workflow where each step informs the next. This page walks through proven operational sequences for the most common security disciplines: penetration testing, bug bounty hunting, OSINT investigations, and threat intelligence. Each workflow maps directly to categories in this reference so you can jump to the right tool at every phase.
+
+<Warning>
+  Always ensure you have **written authorization** before running active reconnaissance against any target. Unauthorized use of these tools against systems you do not own or have explicit permission to test may violate the Computer Fraud and Abuse Act (CFAA), the UK Computer Misuse Act, or equivalent computer crime laws in your jurisdiction. When in doubt, consult legal counsel before proceeding.
+</Warning>
+
+---
+
+## Penetration Testing Workflow
+
+A methodical recon-to-exploitation workflow dramatically improves coverage and reduces noise. Start with the widest passive data sources, then progressively narrow focus toward actionable findings.
+
+<Steps>
+  <Step title="Discover Servers & Infrastructure">
+    Begin with internet-wide scan databases to identify all hosts associated with the target organization. Search by organization name, ASN, IP range, or known domain.
+
+    **Recommended tools:** [Shodan](https://shodan.io), [Censys Search](https://search.censys.io/), [FOFA](https://fofa.info/), [ZoomEye](https://www.zoomeye.org/), [Netlas.io](https://netlas.io/)
+
+    Look for: open ports, service banners, running software versions, TLS certificate subjects, and geolocation. Cross-reference multiple engines — each has different scanning cadence and IPv4/IPv6 coverage.
+  </Step>
+  <Step title="Map the Attack Surface">
+    Expand your infrastructure picture using dedicated attack-surface management platforms that correlate IPs, domains, certificates, and ASN data into a unified external inventory.
+
+    **Recommended tools:** [FullHunt.io](https://fullhunt.io/), [BinaryEdge](https://www.binaryedge.io/), [SecurityTrails](https://securitytrails.com/), [Censys ASM](https://censys.io/), [RedHunt Labs](https://redhuntlabs.com/)
+
+    Look for: shadow IT assets, forgotten staging environments, cloud storage buckets, and any hosts outside the expected IP range that still resolve to the target's domains.
+  </Step>
+  <Step title="Enumerate Domains & Subdomains">
+    Expand horizontally by enumerating every domain and subdomain tied to the organization. Subdomains often host less-hardened internal tools, dev environments, or legacy applications.
+
+    **Recommended tools:** [DNSDumpster](https://dnsdumpster.com/), [Crt.sh](https://crt.sh/), [Omnisint](https://omnisint.io/subdomain-enumeration), [RapidDNS](https://rapiddns.io/), [Chaos](https://chaos.projectdiscovery.io/), [subdomainfinder.c99.nl](https://subdomainfinder.c99.nl/)
+
+    Look for: certificate transparency logs (crt.sh is particularly valuable here), passive DNS history, and wildcard DNS entries that may hide additional hosts.
+  </Step>
+  <Step title="Search for Known Vulnerabilities">
+    With a target technology stack identified from step 1–2, pivot to vulnerability databases to find known CVEs, PoCs, and vendor advisories applicable to the software versions in scope.
+
+    **Recommended tools:** [NIST NVD](https://nvd.nist.gov/vuln/search), [MITRE CVE](https://cve.mitre.org/cve/search_cve_list.html), [Exploit-DB](https://www.exploit-db.com/), [Sploitus](https://sploitus.com/), [Vulners.com](https://vulners.com/)
+
+    Look for: CVEs with public PoC code, recent advisories for the target's specific software versions, and any active exploitation flags in sources like [InTheWild.io](https://inthewild.io/feed).
+  </Step>
+  <Step title="Find Exposed Credentials & Leaks">
+    Before crafting any active exploit, check whether valid credentials are already available in public breach data. A single reused password can make the entire exploit chain unnecessary.
+
+    **Recommended tools:** [Have I Been Pwned](https://haveibeenpwned.com/), [Dehashed](https://www.dehashed.com/), [LeakCheck.io](https://leakcheck.io/), [WhiteIntel](https://whiteintel.io/), [Hudson Rock](https://www.hudsonrock.com/threat-intelligence-cybercrime-tools)
+
+    Look for: email/password pairs from previous breaches, infostealer logs tied to target employees, and NTLM hash leaks that can be passed directly without cracking.
+  </Step>
+</Steps>
+
+---
+
+## Bug Bounty Workflow
+
+Bug bounty programs reward breadth and precision. The goal is to identify a unique, high-impact finding within scope faster than other researchers — which means efficient recon is a competitive advantage.
+
+<Steps>
+  <Step title="Scope & Initial Reconnaissance">
+    Define scope from the program brief, then immediately begin passive reconnaissance to build a comprehensive asset inventory. Use multiple tools in parallel — different engines index different data.
+
+    **Recommended tools:** [Shodan](https://shodan.io), [Censys Search](https://search.censys.io/), [SecurityTrails](https://securitytrails.com/), [FullHunt.io](https://fullhunt.io/), [URLScan](https://urlscan.io/)
+
+    Focus on: assets that appear to be in scope but may not be explicitly listed, recently added infrastructure (new subdomains often ship with fewer protections), and cloud-hosted assets.
+  </Step>
+  <Step title="Subdomain Enumeration">
+    Go deep on subdomain discovery — many high-value findings live on forgotten subdomains that the security team doesn't actively monitor.
+
+    **Recommended tools:** [Crt.sh](https://crt.sh/), [Omnisint](https://omnisint.io/subdomain-enumeration), [DNSDumpster](https://dnsdumpster.com/), [SubDomainRadar.io](https://subdomainradar.io), [AnubisDB](https://jonlu.ca/anubis/), [PhoneBook](https://phonebook.cz/)
+
+    Combine passive certificate transparency data (no active probing) with historical DNS records to find subdomains that have been created and abandoned over time.
+  </Step>
+  <Step title="Search for Secrets in Code">
+    Developers frequently commit API keys, tokens, and credentials to public repositories. Code search engines let you find these exposures before an attacker does.
+
+    **Recommended tools:** [GitHub Code Search](https://github.com/search?type=code), [grep.app](https://grep.app/), [publicwww.com](https://publicwww.com/), [SearchCode](https://searchcode.com/)
+
+    Search for: the target's domain name, internal hostnames, API endpoint patterns, and known key prefixes (e.g., `AKIA` for AWS access keys). Also check [Postman Public Collections](https://www.postman.com/explore/collections) for accidentally public API workspaces.
+  </Step>
+  <Step title="Check Credentials & Breach Data">
+    Confirm whether any employee email addresses from the target organization appear in breach databases. Even if credentials are hashed, knowing which accounts are compromised guides your testing priorities.
+
+    **Recommended tools:** [Have I Been Pwned](https://haveibeenpwned.com/), [Dehashed](https://www.dehashed.com/), [breachdirectory.org](https://breachdirectory.org/), [LeakCheck.io](https://leakcheck.io/)
+
+    Cross-reference discovered email patterns (from [Hunter.io](https://hunter.io/) or [email-format.com](https://www.email-format.com/)) against breach data to find valid credential pairs for in-scope test accounts.
+  </Step>
+</Steps>
+
+---
+
+## OSINT Investigation Workflow
+
+OSINT investigations are iterative: each data point unlocks new pivots. The key discipline is documenting every step and source so your findings are reproducible and legally defensible.
+
+<Steps>
+  <Step title="Email Address Lookup">
+    Start with any known email address. Validate that it's real, check its breach history, and use it to pivot to associated identities, domains, and accounts.
+
+    **Recommended tools:** [IntelligenceX](https://intelx.io/), [Hunter.io](https://hunter.io/), [EmailRep.io](https://emailrep.io/), [PhoneBook](https://phonebook.cz/), [Have I Been Pwned](https://haveibeenpwned.com/)
+
+    An email lookup may reveal: associated domains (useful for corporate investigations), breached passwords, linked social accounts, and public records. [IntelligenceX](https://intelx.io/) in particular archives Pastebin and darknet sources.
+  </Step>
+  <Step title="Phone Number Lookup">
+    Phone numbers are high-value pivot points that connect online identities to real-world individuals. Reverse lookups can reveal carrier, location, and associated names.
+
+    **Recommended tools:** [NumLookup](https://www.numlookup.com/), [SpyDialer](https://spydialer.com/), [ThatsThem](https://thatsthem.com/reverse-phone-lookup), [Truepeoplesearch](https://www.truepeoplesearch.com/#), [SynapsInt](https://synapsint.com/)
+
+    Combine multiple sources — no single service has complete coverage. [Tellows](https://www.tellows.com/) and [thisnumber.com](https://www.thisnumber.com/) add crowd-sourced report history that can indicate fraud or scam use.
+  </Step>
+  <Step title="Social Network Search">
+    Map the subject's presence across social platforms. Look for username consistency across networks, publicly shared media, connections, and historical posts.
+
+    **Recommended tools:** [Whatsmyname.app](https://whatsmyname.app/), [Username Search](https://www.user-searcher.com/), direct searches on [LinkedIn](https://www.linkedin.com/), [Twitter/X](https://twitter.com/), [Instagram](https://www.instagram.com/), [Reddit](https://new.reddit.com/)
+
+    Username enumeration tools like [Whatsmyname](https://whatsmyname.app/) automate checking a single handle across hundreds of platforms simultaneously, revealing accounts the subject may not have publicized.
+  </Step>
+  <Step title="People Search & Records Aggregation">
+    People-search aggregators consolidate public records, voter rolls, property records, and other civil data into searchable profiles.
+
+    **Recommended tools:** [Pipl](https://pipl.com/), [BeenVerified](https://www.beenverified.com/), [TruePeopleSearch](https://www.truepeoplesearch.com/), [Intelius](https://www.intelius.com/), [PeekYou](https://www.peekyou.com/), [Radaris](https://radaris.com/)
+
+    Use these to verify that online identities match real-world individuals and to confirm addresses, associates, and employment history. Always respect applicable privacy laws (GDPR, CCPA, etc.) when using these sources.
+  </Step>
+  <Step title="Reverse Image Search">
+    Reverse image searches can link a profile photo to other online accounts, confirm or disprove claimed identities, and surface stolen images.
+
+    **Recommended tools:** [Google Image Search](https://images.google.com/), [Yandex Image](https://www.yandex.com/images/), [TinEye](https://tineye.com/), [FaceCheck.id](https://facecheck.id/), [PimEyes](https://pimeyes.com/)
+
+    [Yandex](https://www.yandex.com/images/) often finds matches that Google misses, particularly for Eastern European sources. [FaceCheck.id](https://facecheck.id/) and [PimEyes](https://pimeyes.com/) specialize in facial recognition across public web imagery. [FotoForensics](https://fotoforensics.com/) can also analyze image metadata and detect manipulation.
+  </Step>
+</Steps>
+
+---
+
+## Threat Intelligence Workflow
+
+Threat intelligence work centers on enriching indicators of compromise (IOCs), understanding adversary infrastructure, and building context around observed malicious activity.
+
+<Steps>
+  <Step title="Indicator Lookup & Enrichment">
+    Start with any raw IOC — IP address, domain, file hash, or URL — and run it through multi-engine analysis to determine reputation, historical behavior, and associated threat campaigns.
+
+    **Recommended tools:** [VirusTotal](https://www.virustotal.com/), [AbuseIPDB](https://www.abuseipdb.com/), [PulseDive](https://pulsedive.com/), [Cisco Talos](https://talosintelligence.com/), [IBM X-Force Exchange](https://exchange.xforce.ibmcloud.com/)
+
+    VirusTotal aggregates 70+ antivirus engines and sandbox results. Cross-referencing with AbuseIPDB (crowd-reported abuse) and Talos (commercial threat intel) gives both technical and contextual signal in a single workflow step.
+  </Step>
+  <Step title="Malware Sample Analysis">
+    If you've identified a suspicious file hash, expand your analysis by retrieving the sample, reviewing sandbox detonation reports, and checking YARA rule matches.
+
+    **Recommended tools:** [bazaar.abuse.ch](https://bazaar.abuse.ch/browse/), [tria.ge](https://tria.ge/s), [Hybrid Analysis](https://www.hybrid-analysis.com/), [AnyRun](https://app.any.run/submissions), [MalShare](https://malshare.com/), [Filescan.io](https://www.filescan.io/reports)
+
+    [bazaar.abuse.ch](https://bazaar.abuse.ch/browse/) (MalwareBazaar) is the go-to community malware repository. [tria.ge](https://tria.ge/s) and [Hybrid Analysis](https://www.hybrid-analysis.com/) provide automated sandbox detonation with behavioral analysis. [yaraify.abuse.ch](https://yaraify.abuse.ch/) matches samples against community YARA rules.
+  </Step>
+  <Step title="Threat Actor Research">
+    Move from individual IOCs to campaign-level and actor-level context. Understand the TTPs, tooling, and targets associated with the adversary responsible for what you're investigating.
+
+    **Recommended tools:** [MITRE ATT&CK](https://attack.mitre.org/), [ThreatMiner](https://www.threatminer.org/), [ORKL](https://orkl.eu/), [CyberCampaigns](http://www.cybercampaigns.net/), [ShadowServer](https://www.shadowserver.org/), [Team Cymru](https://www.team-cymru.com/)
+
+    [MITRE ATT&CK](https://attack.mitre.org/) is the authoritative framework for mapping adversary behavior to techniques and sub-techniques. ORKL aggregates community-published threat intelligence reports. CyberCampaigns maintains write-ups on specific threat actors and their tooling.
+  </Step>
+  <Step title="Infrastructure Pivoting">
+    Use identified adversary infrastructure (C2 domains, IPs, TLS certificates) to discover related malicious assets through passive DNS, certificate transparency, and scan data.
+
+    **Recommended tools:** [SecurityTrails](https://securitytrails.com/), [Censys Search](https://search.censys.io/), [feodotracker.abuse.ch](https://feodotracker.abuse.ch/browse/), [threatfox.abuse.ch](https://threatfox.abuse.ch/browse/), [PassiveTotal / RiskIQ](https://www.riskiq.com/products/passivetotal/)
+
+    Pivot on shared TLS certificate subjects, ASNs, registrar patterns, and hosting providers to find the full extent of an adversary's infrastructure — even if individual components are burned and rotated.
+  </Step>
+</Steps>
+
+---
+
+## Tips for Effective Use
+
+<AccordionGroup>
+  <Accordion title="Combine multiple tools for comprehensive coverage">
+    No single search engine indexes the entire internet, and each has unique data sources, crawl schedules, and coverage gaps. Shodan, Censys, and FOFA all scan the internet — but they return different results for the same query. Running the same search across three engines typically surfaces 30–50% more unique results than relying on any one alone.
+
+    For domains, combine certificate transparency logs (crt.sh), passive DNS (DNSDumpster, RapidDNS), and attack-surface platforms (FullHunt, SecurityTrails) to build the most complete subdomain inventory possible.
+  </Accordion>
+  <Accordion title="Use passive tools first to avoid detection">
+    Passive tools query pre-collected data — they never send a packet to your target. This means you can build a rich picture of an organization's infrastructure without triggering IDS/IPS alerts, firewall logs, or blue team tripwires.
+
+    Begin every engagement with fully passive sources: Shodan's cached scan data, certificate transparency logs, historical DNS, and breach databases. Only move to active scanning after you have explicit permission and have exhausted passive sources. In a red team context, passive-first also helps avoid tipping off defenders during the early reconnaissance phase.
+  </Accordion>
+  <Accordion title="Verify findings across multiple sources">
+    A single data point from one source is a lead — confirmed by two or more independent sources, it becomes a finding you can act on or report with confidence. This is especially important for:
+
+    - **Breach data**: Confirm credential pairs appear in multiple sources before reporting or testing.
+    - **Open ports / services**: Shodan's cached data may be weeks or months old; verify with a second engine or a careful active check before assuming a service is still exposed.
+    - **OSINT identities**: People-search aggregators regularly contain stale or incorrect data. Cross-reference names, addresses, and phone numbers across at least two independent sources before drawing conclusions.
+  </Accordion>
+  <Accordion title="Check tools' rate limits and terms of service">
+    Most security search engines offer free tiers with rate limits and paid plans for higher-volume access. Exceeding rate limits can get your IP temporarily blocked and interrupt an active engagement.
+
+    Before relying on a tool in a time-sensitive workflow:
+    - Check whether the free tier provides enough queries for your use case.
+    - Review the terms of service — some tools explicitly prohibit use against systems you don't own, or require attribution.
+    - Consider API access for automated pipelines to avoid hitting web-UI rate limits.
+    - Cache results locally so you're not re-querying the same data repeatedly.
+  </Accordion>
+  <Accordion title="Document your methodology and sources">
+    In professional engagements, every finding must be reproducible. Record which tool you used, the exact query, the timestamp, and the raw output for every piece of evidence you plan to include in a report. This protects you legally, helps clients validate findings, and makes retesting straightforward.
+
+    For OSINT investigations in particular, chain-of-custody documentation is essential. Use a structured notes format (Obsidian, CherryTree, or similar) that captures: source → query → result → pivot → next source.
+  </Accordion>
+  <Accordion title="Stay current — tools change frequently">
+    The security tooling landscape moves quickly. Services go offline, rebrand, or change their data model without notice. The upstream repository maintains a dedicated "Not Working / Paused" section for tools that have gone dark, but the best practice is to verify that a tool is still operational before building a workflow dependency on it.
+
+    Bookmark this site and subscribe to the [GitHub repository](https://github.com/edoardottt/awesome-hacker-search-engines) to be notified of updates when new tools are added or existing ones change.
+  </Accordion>
+</AccordionGroup>
+
+---
+
+<Tip>
+  Bookmark this site and use **Ctrl+F** (or **Cmd+F** on macOS) on any category page — or use the sidebar search — to instantly locate the right tool for your current task. The sidebar is organized by discipline, so you can navigate directly to the category relevant to your current phase of work.
+</Tip>
+
+---
+
+## Quick-Reference Tool Cards
+
+The most commonly reached-for tools across all workflows:
+
+<CardGroup cols={3}>
+  <Card title="Shodan" icon="server" href="https://shodan.io">
+    Internet-wide host and service enumeration. The starting point for infrastructure recon.
+  </Card>
+  <Card title="Censys Search" icon="network-wired" href="https://search.censys.io/">
+    Comprehensive internet scan data with strong certificate and protocol coverage.
+  </Card>
+  <Card title="VirusTotal" icon="virus" href="https://www.virustotal.com/">
+    Multi-engine file, URL, domain, and IP analysis. Essential for IOC enrichment.
+  </Card>
+  <Card title="Have I Been Pwned" icon="lock-open" href="https://haveibeenpwned.com/">
+    The authoritative source for checking email and phone exposure in data breaches.
+  </Card>
+  <Card title="Crt.sh" icon="certificate" href="https://crt.sh/">
+    Certificate transparency log search — the fastest way to enumerate subdomains passively.
+  </Card>
+  <Card title="MITRE ATT&CK" icon="shield" href="https://attack.mitre.org/">
+    The definitive framework for mapping adversary TTPs to real-world techniques.
+  </Card>
+</CardGroup>

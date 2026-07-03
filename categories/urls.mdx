@@ -1,0 +1,69 @@
+---
+title: "URL Scanning, Reputation & Archive Tools"
+sidebarTitle: "URLs"
+description: "Tools for scanning URLs for malware, checking web reputation, exploring archived pages, and discovering URLs associated with a domain."
+---
+
+URL scanning and reputation tools form a critical layer of defense in security research, threat investigation, and incident response. When a suspicious link appears in a phishing email, a malware sample, or a threat intelligence feed, URL analysis tools can safely detonate it in a sandbox, check it against threat databases, reveal its hosting infrastructure, and expose the content it serves — all without risking infection of a production machine. Beyond malware detection, these tools support **web archiving** (recovering deleted or changed content), **phishing detection** (identifying fraudulent lookalike pages), **backlink analysis** (mapping domain relationships), and **URL enumeration** (discovering all URLs associated with a target domain).
+
+<CardGroup cols={2}>
+  <Card title="PhoneBook" icon="book" href="https://phonebook.cz/">
+    Lists all domains, email addresses, or URLs for the given input domain — excellent for URL enumeration.
+  </Card>
+  <Card title="IntelligenceX" icon="database" href="https://intelx.io/">
+    Search engine and data archive — indexes URLs across historical and leaked datasets.
+  </Card>
+  <Card title="URLScan" icon="magnifying-glass" href="https://urlscan.io/">
+    A sandbox for the web — submit any URL to scan and analyze its behavior, resources, and redirects.
+  </Card>
+  <Card title="HackerTarget" icon="crosshairs" href="https://hackertarget.com/ip-tools/">
+    Collect information about IP Addresses, Networks, Web Pages and DNS records.
+  </Card>
+  <Card title="MOZ Link Explorer" icon="link" href="https://moz.com/link-explorer">
+    The world's best backlink checker with over 40 trillion links — map domain link relationships.
+  </Card>
+  <Card title="shorteners.grayhatwarfare.com" icon="scissors" href="https://shorteners.grayhatwarfare.com/">
+    Search URLs exposed by Shortener services — unshorten and investigate obfuscated links.
+  </Card>
+  <Card title="CommonCrawl Index" icon="spider" href="http://index.commoncrawl.org/">
+    Open repository of web crawl data — query the index to find all crawled URLs for a domain.
+  </Card>
+  <Card title="URLVoid" icon="shield-halved" href="https://www.urlvoid.com/">
+    Check the online reputation/safety of a website against multiple threat databases.
+  </Card>
+  <Card title="Norton SafeWeb" icon="lock" href="https://safeweb.norton.com/">
+    Look up a site, Get our rating — Norton's web safety and reputation scoring.
+  </Card>
+  <Card title="CheckPhish" icon="fish" href="https://checkphish.bolster.ai/">
+    Real-time URL and website scanner — specializes in phishing page detection.
+  </Card>
+  <Card title="web-check.xyz" icon="circle-info" href="https://web-check.xyz/">
+    All-in-one OSINT tool for quickly checking a website's data — headers, DNS, certs, and more.
+  </Card>
+  <Card title="TinyScan" icon="microscope" href="https://www.tiny-scan.com/">
+    Effortlessly Dive into URL Details — scan and analyze URLs for metadata and content.
+  </Card>
+  <Card title="urldna.io" icon="dna" href="https://urldna.io/">
+    Unleash website insights — analyzes data, monitors brands and exposes security risks.
+  </Card>
+</CardGroup>
+
+## URL Reputation, Phishing Detection & Web Archiving
+
+### URL Reputation Checking
+
+Reputation tools like URLVoid and Norton SafeWeb cross-reference a URL against dozens of threat intelligence feeds, blocklists, and anti-phishing databases simultaneously. This multi-engine approach dramatically reduces false negatives — a URL may be clean on one feed but flagged as phishing on another. During incident response, URL reputation checking is one of the first steps when investigating a suspicious link that appeared in a phishing campaign, malware C2 beacon, or user-reported email.
+
+### Phishing Detection & Analysis
+
+Phishing pages are increasingly sophisticated — they use valid TLS certificates, mimic legitimate login pages, and often evade simple URL blocklists by using URL shorteners, redirectors, or compromised legitimate domains. Tools like CheckPhish use visual similarity analysis and content-based heuristics to detect phishing pages that reputation databases haven't yet catalogued. URLScan goes further by rendering the page in a headless browser, capturing screenshots, recording all network requests, and logging the full DOM — giving analysts a complete picture of what a suspicious URL does when visited.
+
+### Web Archiving in Security Research
+
+Web archiving tools serve several distinct purposes in security investigations:
+- **Evidence preservation**: archiving a phishing page or defaced website before it goes offline
+- **Historical analysis**: understanding what a domain served before it was weaponized
+- **Deleted content recovery**: retrieving pages that an organization or attacker has removed
+- **Change detection**: comparing current and historical content to identify when a compromise or modification occurred
+
+The CommonCrawl Index is particularly valuable for URL enumeration — by querying `*.example.com`, researchers can retrieve every URL that the Common Crawl bot ever indexed for a domain, often revealing endpoints, API paths, and pages not linked from the main site.

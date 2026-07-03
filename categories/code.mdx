@@ -1,0 +1,240 @@
+---
+title: "Source Code Search Engines & Public Repository Tools"
+sidebarTitle: "Code"
+description: "Search engines for finding code across public repositories, discovering exposed secrets, API keys, and vulnerable code patterns in open source projects."
+---
+
+Code search is one of the most powerful techniques in a security researcher's arsenal. Searching across public repositories and open source projects can reveal hardcoded credentials, accidentally committed API keys, vulnerable code patterns, and outdated dependencies before attackers find them. Beyond offensive use, code search engines help understand how third-party libraries work, trace the origin of code snippets, and identify whether a vulnerability has been patched across different forks of a project.
+
+<Tip>
+  grep.app is excellent for quick regex searches across half a million git repos. GitHub Code Search and SourceGraph work well for more targeted searches within specific ecosystems.
+</Tip>
+
+<Warning>
+  Finding exposed secrets in public code does not mean you have authorization to use them. Report discovered credentials through responsible disclosure.
+</Warning>
+
+## Code Search Engines
+
+<CardGroup cols={2}>
+  <Card
+    title="GitHub Code Search"
+    icon="github"
+    href="https://github.com/search?type=code"
+  >
+    Search globally across all of GitHub, or scope your search to a particular repository or organization.
+  </Card>
+  <Card
+    title="GitLab Code Search"
+    icon="code"
+    href="https://gitlab.com/"
+  >
+    Advanced search for faster, more efficient search across the entire GitLab instance.
+  </Card>
+  <Card
+    title="grep.app"
+    icon="magnifying-glass"
+    href="https://grep.app/"
+  >
+    Search across a half million git repos using fast, regex-capable queries.
+  </Card>
+  <Card
+    title="SearchCode"
+    icon="magnifying-glass"
+    href="https://searchcode.com/"
+  >
+    Search 75 billion lines of code from 40 million projects across multiple hosting platforms.
+  </Card>
+  <Card
+    title="SourceGraph"
+    icon="code"
+    href="https://about.sourcegraph.com/"
+  >
+    Understand and search across your entire codebase with powerful code intelligence.
+  </Card>
+  <Card
+    title="publicwww.com"
+    icon="magnifying-glass"
+    href="https://publicwww.com/"
+  >
+    Find any alphanumeric snippet, signature or keyword in the web pages HTML, JS and CSS code.
+  </Card>
+  <Card
+    title="NerdyData"
+    icon="code"
+    href="https://www.nerdydata.com/"
+  >
+    Find companies based on their website's tech stack or code signatures.
+  </Card>
+  <Card
+    title="RepoSearch"
+    icon="magnifying-glass"
+    href="http://codefinder.org/"
+  >
+    Source code search engine that helps you find implementation details, example usages or just analyze code.
+  </Card>
+  <Card
+    title="HotExamples"
+    icon="code"
+    href="https://hotexamples.com/"
+  >
+    Search code examples from over 1 million projects across many programming languages.
+  </Card>
+  <Card
+    title="WebFinery"
+    icon="magnifying-glass"
+    href="https://webfinery.com/search"
+  >
+    Search the source code of the web for specific patterns and strings.
+  </Card>
+  <Card
+    title="Repogrep"
+    icon="magnifying-glass"
+    href="https://app.ami.dev/repogrep"
+  >
+    AI coding agent that can search across any public GitHub repository.
+  </Card>
+  <Card
+    title="WP Directory"
+    icon="magnifying-glass"
+    href="https://wpdirectory.net/"
+  >
+    Lightning fast regex searching of code in the WordPress Plugin and Theme Directories.
+  </Card>
+  <Card
+    title="Google Code Archive"
+    icon="magnifying-glass"
+    href="https://code.google.com/archive/"
+  >
+    Data found on the Google Code Project Hosting Service, which was turned down in early 2016.
+  </Card>
+  <Card
+    title="Snipplr"
+    icon="code"
+    href="https://snipplr.com/all"
+  >
+    Code snippet search engine that allows users to search and share code snippets across various programming languages and frameworks.
+  </Card>
+  <Card
+    title="ScriptMafia"
+    icon="code"
+    href="https://scriptmafia.org"
+  >
+    Download full nulled scripts for research and analysis.
+  </Card>
+  <Card
+    title="SearchFTPs"
+    icon="magnifying-glass"
+    href="https://www.searchftps.net/"
+  >
+    The most advanced FTP Search Engine service maintained by members.
+  </Card>
+</CardGroup>
+
+## Repository Hosting & Discovery
+
+<CardGroup cols={2}>
+  <Card
+    title="Sourceforge"
+    icon="box"
+    href="https://sourceforge.net/"
+  >
+    Complete Open-Source and Business Software Platform hosting thousands of projects.
+  </Card>
+  <Card
+    title="GitHub Gists"
+    icon="github"
+    href="https://gist.github.com/discover"
+  >
+    Instantly share code, notes, and snippets — a common place for quick code drops, including accidental leaks.
+  </Card>
+  <Card
+    title="CodeBerg"
+    icon="code"
+    href="https://codeberg.org/explore/repos"
+  >
+    Collaboration platform and Git hosting for free and open source software, content and projects.
+  </Card>
+  <Card
+    title="Fedora Pagure"
+    icon="code"
+    href="https://pagure.io/browse/projects/"
+  >
+    Open Source software code hosting system used by the Fedora community.
+  </Card>
+  <Card
+    title="LaunchPad"
+    icon="box"
+    href="https://launchpad.net/"
+  >
+    Software collaboration platform providing bug tracking, code hosting, code reviews, and Ubuntu package building.
+  </Card>
+  <Card
+    title="Sourcehut"
+    icon="code"
+    href="https://sr.ht/projects"
+  >
+    Collection of tools useful for software development with a focus on simplicity.
+  </Card>
+  <Card
+    title="repo.or.cz"
+    icon="code"
+    href="https://repo.or.cz/?a=project_list"
+  >
+    Public Git hosting site with a list of open source projects.
+  </Card>
+  <Card
+    title="android.googlesource.com"
+    icon="code"
+    href="https://android.googlesource.com/"
+  >
+    Git repositories on Android, hosting all official Android Open Source Project code.
+  </Card>
+  <Card
+    title="deps.dev"
+    icon="puzzle-piece"
+    href="https://deps.dev/"
+  >
+    Service developed and hosted by Google to help developers better understand the structure, construction, and security of open source software packages.
+  </Card>
+  <Card
+    title="gitorious.org"
+    icon="code"
+    href="https://gitorious.org/"
+  >
+    Read-only mirror of the former gitorious.org code hosting website.
+  </Card>
+  <Card
+    title="Ecosyste.ms"
+    icon="puzzle-piece"
+    href="https://ecosyste.ms/"
+  >
+    An open API service providing package, version and dependency metadata of many open source software ecosystems and registries.
+  </Card>
+</CardGroup>
+
+## API & Collection Discovery
+
+<CardGroup cols={2}>
+  <Card
+    title="SwaggerHub"
+    icon="puzzle-piece"
+    href="https://app.swaggerhub.com/search"
+  >
+    Search public APIs and Domains in SwaggerHub to discover and review API definitions.
+  </Card>
+  <Card
+    title="RapidAPI Public Hub"
+    icon="puzzle-piece"
+    href="https://rapidapi.com/hub"
+  >
+    Explore the world's largest API marketplace with thousands of public APIs.
+  </Card>
+  <Card
+    title="Postman Public Collections"
+    icon="puzzle-piece"
+    href="https://www.postman.com/explore/collections"
+  >
+    Explore the best APIs, collections, workspaces in the world on the Postman Public API Network.
+  </Card>
+</CardGroup>

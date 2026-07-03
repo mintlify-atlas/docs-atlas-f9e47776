@@ -1,0 +1,160 @@
+---
+title: "Vulnerability Databases & CVE Search Engines"
+sidebarTitle: "Vulnerabilities"
+description: "CVE databases, vulnerability intelligence platforms, and security advisory feeds for tracking and researching known vulnerabilities."
+---
+
+Vulnerability databases are the backbone of modern security research, patch management, and risk assessment. When a new flaw is discovered and assigned a CVE identifier, practitioners need fast, reliable access to affected versions, CVSS scores, public exploits, and vendor patches — all of which are scattered across dozens of authoritative and community-maintained sources. Whether you're triaging a zero-day, validating scanner output, building a vulnerability management program, or writing threat-intelligence reports, knowing *where* to look is just as important as knowing *what* to look for. The platforms below span government-operated national databases, open-source community registries, cloud-focused advisories, vendor security portals, and real-time CVE feeds — together forming a comprehensive ecosystem for vulnerability intelligence.
+
+## Major CVE Databases
+
+<CardGroup cols={2}>
+  <Card title="NIST NVD" icon="database" href="https://nvd.nist.gov/vuln/search">
+    US National Vulnerability Database — the authoritative U.S. government repository for standards-based vulnerability management data, including CVSS scores and CPE mappings.
+  </Card>
+  <Card title="MITRE CVE" icon="shield" href="https://cve.mitre.org/cve/search_cve_list.html">
+    Identify, define, and catalog publicly disclosed cybersecurity vulnerabilities. The canonical source for CVE identifiers and their official descriptions.
+  </Card>
+  <Card title="GitHub Advisory Database" icon="code" href="https://github.com/advisories">
+    Security vulnerability database inclusive of CVEs and GitHub-originated security advisories covering open-source packages across all major ecosystems.
+  </Card>
+  <Card title="osv.dev" icon="magnifying-glass" href="https://osv.dev/list">
+    Open Source Vulnerabilities — Google's open database of vulnerabilities affecting open-source projects, with structured, machine-readable data and ecosystem-level coverage.
+  </Card>
+  <Card title="CVEDetails" icon="database" href="https://www.cvedetails.com/">
+    The ultimate security vulnerability datasource — browse vulnerabilities by vendor, product, version, and CVSS score with extensive cross-referencing.
+  </Card>
+  <Card title="Google Project Zero" icon="bug" href="https://bugs.chromium.org/p/project-zero/issues/list?can=1&q=&sort=-id&colspec=ID%20Type%20Status%20Priority%20Milestone%20Owner%20Summary">
+    Vulnerabilities including zero-days discovered and responsibly disclosed by Google's elite Project Zero security research team.
+  </Card>
+  <Card title="Red Hat Security Advisories" icon="shield" href="https://access.redhat.com/security/security-updates/">
+    Information about security flaws that affect Red Hat products and services in the form of security advisories — essential for RHEL, CentOS, and Fedora environments.
+  </Card>
+  <Card title="Cisco Security Advisories" icon="shield" href="https://sec.cloudapps.cisco.com/security/center/publicationListing.x">
+    Security advisories and vulnerability information for Cisco products, including network equipment and software — critical for infrastructure-heavy environments.
+  </Card>
+  <Card title="Microsoft Security Response Center" icon="shield" href="https://msrc.microsoft.com/update-guide/en-us">
+    Reports of security vulnerabilities affecting Microsoft products and services — the definitive source for Patch Tuesday details and Windows/Office CVEs.
+  </Card>
+  <Card title="Trend Micro Zero Day Initiative" icon="bolt" href="https://www.zerodayinitiative.com/advisories/published/">
+    Publicly disclosed vulnerabilities discovered by Zero Day Initiative researchers — a leading vendor-neutral bug acquisition program publishing detailed advisories.
+  </Card>
+  <Card title="cnvd.org.cn" icon="database" href="https://www.cnvd.org.cn/">
+    Chinese National Vulnerability Database — the authoritative vulnerability registry maintained by CNCERT/CC covering Chinese software and global products.
+  </Card>
+  <Card title="InTheWild.io" icon="bolt" href="https://inthewild.io/feed">
+    Check CVEs in our free, open source feed of exploited vulnerabilities — tracks which CVEs have confirmed in-the-wild exploitation for prioritization.
+  </Card>
+</CardGroup>
+
+## Vendor & Specialized Databases
+
+<CardGroup cols={2}>
+  <Card title="cloudvulndb.org" icon="database" href="https://www.cloudvulndb.org/">
+    The Open Cloud Vulnerability & Security Issue Database — focused on cloud-specific flaws across AWS, Azure, GCP, and major SaaS platforms.
+  </Card>
+  <Card title="Vulners.com" icon="magnifying-glass" href="https://vulners.com/">
+    Your Search Engine for Security Intelligence — aggregates bulletins, CVEs, and exploits from hundreds of sources into a single, full-text searchable platform.
+  </Card>
+  <Card title="opencve.io" icon="magnifying-glass" href="https://www.opencve.io/cve">
+    Easiest way to track CVE updates and be alerted about new vulnerabilities — provides subscription-based monitoring and diff views of CVE changes over time.
+  </Card>
+  <Card title="security.snyk.io" icon="code" href="https://security.snyk.io/">
+    Open Source Vulnerability Database — Snyk's developer-focused vulnerability intelligence covering npm, PyPI, Maven, NuGet, and other package ecosystems.
+  </Card>
+  <Card title="Mend Vulnerability Database" icon="database" href="https://www.mend.io/vulnerability-database/">
+    The largest open source vulnerability DB — comprehensive coverage of open-source component vulnerabilities with actionable remediation guidance.
+  </Card>
+  <Card title="Rapid7 - DB" icon="magnifying-glass" href="https://www.rapid7.com/db/">
+    Vulnerability & Exploit Database — Rapid7's curated database of vulnerabilities and corresponding exploit modules used within Metasploit.
+  </Card>
+  <Card title="VulnIQ" icon="shield" href="https://vulniq.com/">
+    Vulnerability intelligence and management solution — provides enriched CVE data, scoring, and workflow integrations for enterprise vuln management programs.
+  </Card>
+  <Card title="SynapsInt" icon="magnifying-glass" href="https://synapsint.com/">
+    The unified OSINT research tool — aggregates vulnerability data alongside domain, IP, and threat-intelligence lookups into a single interface.
+  </Card>
+  <Card title="Aqua Vulnerability Database" icon="database" href="https://avd.aquasec.com/">
+    Vulnerabilities and weaknesses in open source applications and cloud native infrastructure — Aqua's AVD is tailored for container and Kubernetes security.
+  </Card>
+  <Card title="Vulmon" icon="magnifying-glass" href="https://vulmon.com/">
+    Vulnerability and exploit search engine — links CVE records directly to known public exploits, making it easy to assess exploitability at a glance.
+  </Card>
+  <Card title="VulDB" icon="database" href="https://vuldb.com/">
+    Number one vulnerability database — one of the longest-running independent vulnerability databases with detailed timeline, patch, and countermeasure data.
+  </Card>
+  <Card title="ScanFactory" icon="magnifying-glass" href="https://in.scanfactory.io/cvemon.html">
+    Realtime Security Monitoring — CVEmon tracks newly published CVEs and maps them to live targets for rapid exposure assessment.
+  </Card>
+  <Card title="Trickest CVE Repository" icon="code" href="https://github.com/trickest/cve">
+    Gather and update all available and newest CVEs with their PoC — a GitHub-hosted repository that automatically collects proof-of-concept code for new CVEs.
+  </Card>
+  <Card title="Vulnerability Lab" icon="bug" href="https://www.vulnerability-lab.com/">
+    Vulnerability research, bug bounties and vulnerability assessments — an independent research lab publishing original advisories and security papers.
+  </Card>
+  <Card title="VARIoT" icon="database" href="https://www.variotdbs.pl/vulns/">
+    VARIoT IoT Vulnerabilities Database — specialized database tracking vulnerabilities in IoT devices, firmware, and embedded systems.
+  </Card>
+  <Card title="Lambda Watchdog" icon="shield" href="https://lambdawatchdog.com/">
+    Your CVE dashboard for AWS Lambda — monitors CVEs relevant to serverless Lambda runtimes and their dependencies.
+  </Card>
+  <Card title="cvefeed.io" icon="magnifying-glass" href="https://cvefeed.io/">
+    Comprehensive and up-to-date feed of the latest CVEs, security advisories, and other vulnerabilities — a real-time aggregation feed with filtering capabilities.
+  </Card>
+  <Card title="CVE Crowd" icon="magnifying-glass" href="https://cvecrowd.com/">
+    Keep track of actively discussed CVEs and integrate them into your application or business — surfaces trending CVEs based on community discussion signals.
+  </Card>
+  <Card title="Wiz Vulnerability Database" icon="database" href="https://www.wiz.io/vulnerability-database">
+    A comprehensive resource for monitoring high-profile vulnerabilities in cloud environments, tailored for security teams and cloud professionals.
+  </Card>
+  <Card title="Shodan CVEDB" icon="magnifying-glass" href="https://cvedb.shodan.io/">
+    The CVEDB API offers a quick way to check information about vulnerabilities in a service — cross-references CVE data with Shodan's internet-wide scan results.
+  </Card>
+  <Card title="Vulert" icon="bug" href="https://vulert.com/vuln-db">
+    Recent security issues found in open-source packages — monitors open-source dependencies and alerts on newly disclosed vulnerabilities without code access.
+  </Card>
+  <Card title="promptfoo.dev LM Security Database" icon="database" href="https://www.promptfoo.dev/lm-security-db/">
+    A comprehensive collection of LLM vulnerabilities, curated from cutting-edge research papers and real-world discoveries — focused on AI/ML model security.
+  </Card>
+  <Card title="opencryptography.com" icon="shield" href="https://opencryptography.com/">
+    Free public database of 10,000+ unique Docker image scans for hidden cryptographic assets and critical implementation flaws.
+  </Card>
+  <Card title="pathfinding.cloud" icon="database" href="https://pathfinding.cloud/paths/">
+    Comprehensive, community-maintained library documenting AWS IAM privilege escalation paths — essential for cloud red teaming and IAM hardening.
+  </Card>
+  <Card title="BaseFortify.eu" icon="shield" href="https://basefortify.eu/">
+    Monitor software vulnerabilities with CVE matching, exploit risk alerts, and mitigation guidance — provides continuous exposure tracking for software inventories.
+  </Card>
+</CardGroup>
+
+---
+
+## Understanding CVE Identifiers
+
+Every publicly disclosed vulnerability is assigned a **CVE (Common Vulnerabilities and Exposures)** identifier in the format `CVE-YEAR-NUMBER` (e.g., `CVE-2024-21762`). The year reflects when the CVE was reserved, *not* necessarily when the vulnerability was discovered or patched. Key attributes to look for in any database entry include:
+
+| Field | What It Tells You |
+|---|---|
+| **CVSS Score** | Severity rating (0–10). ≥ 9.0 = Critical, 7–8.9 = High |
+| **CPE** | Affected product/version in structured format |
+| **CWE** | Root-cause weakness class (e.g., CWE-79 = XSS) |
+| **References** | Patches, PoCs, vendor advisories, and NVD analyses |
+| **EPSS Score** | Probability the vulnerability will be exploited in the wild |
+
+### Search Tips
+
+- **By product version**: Use NVD's CPE search or VulnIQ to scope results to a specific software version.
+- **By weakness type**: Filter by CWE to find all SQL-injection or buffer-overflow class bugs in a product.
+- **By exploit availability**: Use Vulmon or Sploitus to filter only CVEs with known public exploits.
+- **By recency**: Use cvefeed.io or opencve.io for real-time alerts on newly published or updated CVEs.
+- **By environment**: Use cloudvulndb.org, Wiz, or Lambda Watchdog for cloud-native and serverless workload targeting.
+
+---
+
+<Tip>
+  **Use multiple databases for comprehensive coverage.** No single database is complete — NVD can lag by days or weeks after initial publication, vendor advisories may precede CVE assignment, and community databases like Vulners or security.snyk.io often carry package-level context that NVD lacks. Cross-reference at least two or three sources before concluding a product is unaffected.
+</Tip>
+
+<Note>
+  Some platforms (like Vulners, VulnIQ) require free registration for full access. Check individual tool terms for commercial use.
+</Note>

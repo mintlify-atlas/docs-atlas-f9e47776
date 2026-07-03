@@ -1,0 +1,614 @@
+---
+title: "Threat Intelligence Platforms & Malware Research Tools"
+sidebarTitle: "Threat Intelligence"
+description: "Threat intelligence platforms, malware analysis sandboxes, IOC databases, YARA rule repositories, and cyber threat feeds for security operations."
+---
+
+Threat intelligence (TI) is the practice of collecting, analyzing, and operationalizing information about adversaries, their tools, and their techniques. In modern Security Operations Centers (SOCs), TI feeds and platforms are essential for contextualizing alerts, prioritizing incidents, and hunting for hidden threats before they escalate. During incident response, analysts pivot through IOC databases, sandbox reports, and actor profiles to understand the full scope of an intrusion. Threat hunters use TI proactively — querying malware repositories, YARA rule engines, and enrichment APIs to surface indicators of compromise that silent detections may have missed. The tools below span every layer of the intelligence cycle, from raw malware samples and live botnet trackers to curated actor profiles and MITRE ATT&CK-aligned detection rules, giving defenders a comprehensive edge.
+
+<Tip>
+  Start with VirusTotal for quick IOC lookups, then pivot to specialized platforms like Cisco Talos or IBM X-Force for deeper threat actor context.
+</Tip>
+
+<Note>
+  Many threat intelligence platforms operate on a freemium model. Core lookup capabilities are typically free, but higher-volume API access, historical data exports, and advanced correlation features are gated behind commercial subscriptions. Always verify current pricing and terms of service before integrating a platform into automated workflows.
+</Note>
+
+## Threat Intelligence Platforms
+
+<CardGroup cols={2}>
+  <Card
+    title="MITRE ATT&CK"
+    icon="shield"
+    href="https://attack.mitre.org/"
+  >
+    Globally-accessible knowledge base of adversary tactics and techniques used as the foundation for threat-informed defense and detection engineering.
+  </Card>
+  <Card
+    title="PulseDive"
+    icon="radar"
+    href="https://pulsedive.com/"
+  >
+    Threat intelligence made easy — search and enrich IOCs with risk scores, linked threats, and context aggregated from dozens of feeds.
+  </Card>
+  <Card
+    title="ThreatMiner"
+    icon="database"
+    href="https://www.threatminer.org/"
+  >
+    Data mining for threat intelligence, pivoting across domains, IPs, SSL certificates, malware samples, and WHOIS records from a single interface.
+  </Card>
+  <Card
+    title="VirusTotal"
+    icon="magnifying-glass"
+    href="https://www.virustotal.com/"
+  >
+    Analyze suspicious files, domains, IPs, and URLs to detect malware and other breaches using scores from 70+ antivirus engines and threat intelligence feeds.
+  </Card>
+  <Card
+    title="Cisco Talos"
+    icon="shield"
+    href="https://talosintelligence.com/"
+  >
+    The threat intelligence organization at the center of the Cisco Security portfolio, publishing research on active campaigns, vulnerabilities, and threat actors.
+  </Card>
+  <Card
+    title="IBM X-Force Exchange"
+    icon="radar"
+    href="https://exchange.xforce.ibmcloud.com/"
+  >
+    Threat intelligence sharing platform enabling research on security threats, aggregation of intelligence, and collaboration with peers.
+  </Card>
+  <Card
+    title="socradar.io"
+    icon="database"
+    href="https://socradar.io/"
+  >
+    An extension to your SOC team — provides dark web monitoring, attack surface intelligence, and contextualized threat feeds for security operations.
+  </Card>
+  <Card
+    title="ThreatBook"
+    icon="shield"
+    href="https://threatbook.io/"
+  >
+    One step ahead of your adversary with high-fidelity, efficient and actionable cyber threat intelligence covering malware, actors, and infrastructure.
+  </Card>
+  <Card
+    title="Team Cymru"
+    icon="radar"
+    href="https://www.team-cymru.com/"
+  >
+    Global leader in cyber threat intelligence and attack surface management, providing unique internet telemetry and adversary infrastructure insights.
+  </Card>
+  <Card
+    title="Cybersixgill"
+    icon="magnifying-glass"
+    href="https://cybersixgill.com/"
+  >
+    Threat intelligence platform providing access to a wide range of cybersecurity information, including dark web monitoring and threat actor analysis.
+  </Card>
+  <Card
+    title="OTX AlienVault"
+    icon="database"
+    href="https://otx.alienvault.com/"
+  >
+    The World's First Truly Open Threat Intelligence Community — share and receive IOCs, pulses, and threat research from a global contributor network.
+  </Card>
+  <Card
+    title="ThreatCrowd"
+    icon="magnifying-glass"
+    href="https://threatcrowd.org/"
+  >
+    A search engine for threats that visually maps relationships between domains, IPs, email addresses, and malware samples.
+  </Card>
+  <Card
+    title="PassiveTotal (RiskIQ)"
+    icon="shield"
+    href="https://www.riskiq.com/products/passivetotal/"
+  >
+    Security intelligence that scales security operations and response through passive DNS, SSL, and WHOIS pivoting.
+  </Card>
+  <Card
+    title="ShadowServer"
+    icon="radar"
+    href="https://www.shadowserver.org/"
+  >
+    Nonprofit security organization working altruistically behind the scenes to make the Internet more secure for everyone through scanning and reporting.
+  </Card>
+  <Card
+    title="CIRCL"
+    icon="circle-info"
+    href="https://www.circl.lu/"
+  >
+    The Computer Incident Response Center Luxembourg — a government-driven initiative to gather, review, report and respond to computer security threats and incidents.
+  </Card>
+  <Card
+    title="The DFIR Report"
+    icon="database"
+    href="https://thedfirreport.com/"
+  >
+    Real intrusions by real attackers — detailed technical write-ups of actual threat actor campaigns from initial access to ransomware deployment.
+  </Card>
+  <Card
+    title="CyberCampaigns"
+    icon="radar"
+    href="http://www.cybercampaigns.net/"
+  >
+    Threat actor information and write-ups covering known APT groups, their tools, techniques, and attributed campaigns.
+  </Card>
+  <Card
+    title="ORKL"
+    icon="database"
+    href="https://orkl.eu/"
+  >
+    The community-driven cyber threat intelligence library aggregating reports and research from the security community in a searchable format.
+  </Card>
+  <Card
+    title="Hunt.io"
+    icon="magnifying-glass"
+    href="https://hunt.io/"
+  >
+    Service that provides threat intelligence data about observed network scanning and cyberattacks, enabling defenders to track malicious infrastructure.
+  </Card>
+  <Card
+    title="ThreatIntelligencePlatform.com"
+    icon="shield"
+    href="https://threatintelligenceplatform.com/"
+  >
+    Data, tool, and API provider that specializes in automated threat detection, security analysis and threat intelligence solutions.
+  </Card>
+  <Card
+    title="Rescure"
+    icon="radar"
+    href="https://rescure.me/"
+  >
+    Curated cyber threat intelligence for everyone — distilled, actionable intelligence feeds delivered in a consumable format.
+  </Card>
+  <Card
+    title="Lupovis Prowl"
+    icon="circle-info"
+    href="https://prowl.lupovis.io/"
+  >
+    Analyze and collect data on Internet-wide scans and attacks in real-time to identify and classify malicious actors targeting your infrastructure.
+  </Card>
+  <Card
+    title="OpSecFailure"
+    icon="triangle-exclamation"
+    href="https://opsecfail.github.io/"
+  >
+    Site that lists how individuals messed up their operational security — useful for understanding attacker tradecraft mistakes and red team awareness.
+  </Card>
+  <Card
+    title="InfoTrail"
+    icon="magnifying-glass"
+    href="https://infotrail.io/"
+  >
+    Advanced OSINT search engine helping security professionals and researchers uncover critical intelligence across multiple data sources.
+  </Card>
+</CardGroup>
+
+## Malware Analysis & Sandboxes
+
+<CardGroup cols={2}>
+  <Card
+    title="bazaar.abuse.ch"
+    icon="bug"
+    href="https://bazaar.abuse.ch/browse/"
+  >
+    Malware sample database operated by abuse.ch — submit and search malware samples with rich metadata including hashes, tags, and threat families.
+  </Card>
+  <Card
+    title="Joe Sandbox"
+    icon="bug"
+    href="https://www.joesandbox.com/"
+  >
+    Threat hunting and search engine featuring deep malware analysis powered by a multi-platform sandbox environment with extensive behavioral analysis.
+  </Card>
+  <Card
+    title="tria.ge"
+    icon="bug"
+    href="https://tria.ge/s"
+  >
+    Fully automated solution for high-volume malware analysis using advanced sandboxing technology — browse and search public sandbox reports.
+  </Card>
+  <Card
+    title="Hybrid Analysis"
+    icon="magnifying-glass"
+    href="https://www.hybrid-analysis.com/"
+  >
+    Free malware analysis service for the community that detects and analyzes unknown threats using a unique Hybrid Analysis technology combining static and dynamic methods.
+  </Card>
+  <Card
+    title="AnyRun"
+    icon="bug"
+    href="https://app.any.run/submissions"
+  >
+    Browse thousands of malware samples in an interactive online sandbox where you can observe malware behavior in real time and collaborate with the community.
+  </Card>
+  <Card
+    title="VirusShare"
+    icon="database"
+    href="https://virusshare.com/"
+  >
+    System currently containing 48 million malware samples — a repository providing researchers with access to current, live malicious code for analysis.
+  </Card>
+  <Card
+    title="MalShare"
+    icon="database"
+    href="https://malshare.com/"
+  >
+    Community-driven public malware repository that works to provide free access to malware samples and related source code for security researchers.
+  </Card>
+  <Card
+    title="Malwares.com"
+    icon="bug"
+    href="https://malwares.com/"
+  >
+    Search malwares online — a searchable database of malware samples, hashes, and behavioral reports for threat researchers.
+  </Card>
+  <Card
+    title="Filescan.io"
+    icon="magnifying-glass"
+    href="https://www.filescan.io/reports"
+  >
+    Search reports for file name, URL, IP, domain or hash — an OPSWAT-powered sandbox platform for rapid malware triage and IOC extraction.
+  </Card>
+  <Card
+    title="vx-underground.org"
+    icon="database"
+    href="https://vx-underground.org/"
+  >
+    The largest collection of malware source code, samples, and papers on the internet — a valuable research archive for malware analysts.
+  </Card>
+  <Card
+    title="Scumware"
+    icon="bug"
+    href="https://www.scumware.org/search.php"
+  >
+    Find latest reports about malware and other threats — a search engine for malware intelligence and threat reports.
+  </Card>
+  <Card
+    title="urlquery.net"
+    icon="magnifying-glass"
+    href="https://urlquery.net/"
+  >
+    Service for detecting and analyzing web-based malware — submits URLs to a sandbox and reports on network activity, IDS alerts, and detected threats.
+  </Card>
+  <Card
+    title="KleenScan"
+    icon="shield"
+    href="https://kleenscan.biz/index"
+  >
+    Analyze files to detect malware. Analyze URLs, domains, and IPs to detect malware and blacklist status using multi-engine scanning.
+  </Card>
+  <Card
+    title="opensourcemalware.com"
+    icon="database"
+    href="https://opensourcemalware.com/"
+  >
+    A community database, API and collaboration platform to help identify and protect against open-source malware packages in software supply chains.
+  </Card>
+  <Card
+    title="ApkLab"
+    icon="magnifying-glass"
+    href="https://www.apklab.io/"
+  >
+    Mobile threat intelligence platform designed to provide the most relevant information for Android security researchers analyzing malicious APKs.
+  </Card>
+  <Card
+    title="BeVigil"
+    icon="shield"
+    href="https://bevigil.com/"
+  >
+    Search engine for mobile application security testing — uncover security issues, leaked secrets, and vulnerabilities in mobile apps at scale.
+  </Card>
+</CardGroup>
+
+## Abuse & IOC Feeds
+
+<CardGroup cols={2}>
+  <Card
+    title="feodotracker.abuse.ch"
+    icon="triangle-exclamation"
+    href="https://feodotracker.abuse.ch/browse/"
+  >
+    List of botnet Command & Control servers tracked by abuse.ch — covers Emotet, Dridex, TrickBot, and other major banking trojan infrastructure.
+  </Card>
+  <Card
+    title="sslbl.abuse.ch"
+    icon="shield"
+    href="https://sslbl.abuse.ch/ssl-certificates/"
+  >
+    SSL Blacklist by abuse.ch — tracks all malicious SSL certificates associated with botnet C&C servers and malware distribution infrastructure.
+  </Card>
+  <Card
+    title="urlhaus.abuse.ch"
+    icon="triangle-exclamation"
+    href="https://urlhaus.abuse.ch/browse/"
+  >
+    Propose new malware URLs and browse the abuse.ch database of URLs actively distributing malware to enable rapid blocking and researcher awareness.
+  </Card>
+  <Card
+    title="threatfox.abuse.ch"
+    icon="database"
+    href="https://threatfox.abuse.ch/browse/"
+  >
+    Indicator of Compromise (IOC) database by abuse.ch — a platform for sharing IOCs associated with malware with the infosec community.
+  </Card>
+  <Card
+    title="yaraify.abuse.ch"
+    icon="magnifying-glass"
+    href="https://yaraify.abuse.ch/"
+  >
+    Scan suspicious files such as malware samples or process dumps against a large repository of YARA rules contributed by the security community.
+  </Card>
+  <Card
+    title="PhishTank"
+    icon="triangle-exclamation"
+    href="https://phishtank.org/"
+  >
+    Collaborative clearing house for data and information about phishing on the Internet — verify, track, and share phishing URLs in real time.
+  </Card>
+  <Card
+    title="OpenPhish"
+    icon="triangle-exclamation"
+    href="https://openphish.com/"
+  >
+    Actionable intelligence data on active phishing threats — provides real-time phishing URL feeds for integration into security controls.
+  </Card>
+  <Card
+    title="AbuseIPDB"
+    icon="database"
+    href="https://www.abuseipdb.com/"
+  >
+    Check the report history of any IP address to see if anyone else has reported malicious activities — a community-driven IP reputation database.
+  </Card>
+  <Card
+    title="Spamhaus"
+    icon="shield"
+    href="https://spamhaus.com"
+  >
+    Protect and investigate using IP and domain reputation data — the internet's most trusted blocklist authority for spam, malware, and botnets.
+  </Card>
+  <Card
+    title="scamsearch.io"
+    icon="magnifying-glass"
+    href="https://scamsearch.io/#anchorCeckNow"
+  >
+    Find your scammer online and report them — aggregates scam reports across multiple platforms to help victims and researchers identify fraud actors.
+  </Card>
+  <Card
+    title="scamdb.net"
+    icon="triangle-exclamation"
+    href="https://www.scamdb.net/"
+  >
+    Report and search online scams — a community-driven database for identifying and exposing scam domains, phone numbers, and email addresses.
+  </Card>
+  <Card
+    title="ransomlook.io"
+    icon="bug"
+    href="https://www.ransomlook.io/"
+  >
+    Open-source project providing real-time ransomware intelligence, tracking active ransomware groups, their victims, and dark web leak site activity.
+  </Card>
+  <Card
+    title="seized.fyi"
+    icon="shield"
+    href="https://seized.fyi/"
+  >
+    List of seized websites — tracks law enforcement takedowns of cybercriminal infrastructure, dark web markets, and ransomware operations.
+  </Card>
+  <Card
+    title="Zone-H Archive"
+    icon="database"
+    href="https://www.zone-h.org/archive/"
+  >
+    Online archive dedicated to collecting and publishing records of defaced websites — useful for tracking hacktivism campaigns and threat actor tagging.
+  </Card>
+  <Card
+    title="RuleHound"
+    icon="magnifying-glass"
+    href="https://rulehound.com/rules"
+  >
+    An index of publicly available and open-source threat detection rulesets — find Sigma, YARA, and Suricata rules across multiple community repositories.
+  </Card>
+  <Card
+    title="ClickFix Wiki"
+    icon="triangle-exclamation"
+    href="https://clickfix-wiki.github.io/"
+  >
+    ClickFix lures can lead to malware and computer viruses — a reference documenting social engineering lures that trick users into running malicious commands.
+  </Card>
+</CardGroup>
+
+## Living Off the Land & Detection
+
+<CardGroup cols={2}>
+  <Card
+    title="malapi.io"
+    icon="bug"
+    href="https://malapi.io/"
+  >
+    Windows APIs used for malicious purposes — a reference mapping API calls to known malicious techniques for detection engineering and malware analysis.
+  </Card>
+  <Card
+    title="filesec.io"
+    icon="magnifying-glass"
+    href="https://filesec.io/"
+  >
+    Latest file extensions being used by attackers — tracks file type abuse for malware delivery to keep detection rules current.
+  </Card>
+  <Card
+    title="bootloaders.io"
+    icon="bug"
+    href="https://www.bootloaders.io/"
+  >
+    Curated list of known malicious bootloaders for various operating systems — assists in detection and forensic triage of pre-OS persistence mechanisms.
+  </Card>
+  <Card
+    title="WTFBins"
+    icon="triangle-exclamation"
+    href="https://wtfbins.wtf/"
+  >
+    Catalogue of benign applications that exhibit suspicious behavior — helps reduce false positives in threat hunting and automated detections.
+  </Card>
+  <Card
+    title="HijackLibs"
+    icon="bug"
+    href="https://hijacklibs.net/"
+  >
+    Project for tracking publicly disclosed DLL Hijacking opportunities — documents vulnerable application paths for red team operations and defensive coverage.
+  </Card>
+  <Card
+    title="Detection.FYI"
+    icon="shield"
+    href="https://detection.fyi/"
+  >
+    Search Sigma rules across a broad repository of community-contributed detection logic for SIEM and EDR platforms.
+  </Card>
+  <Card
+    title="Living off the False Positive"
+    icon="triangle-exclamation"
+    href="https://br0k3nlab.com/LoFP/"
+  >
+    Autogenerated collection of false positives sourced from popular rule sets — helps analysts tune detections by cataloging known benign trigger conditions.
+  </Card>
+  <Card
+    title="LOFLCAB"
+    icon="bug"
+    href="https://lofl-project.github.io/"
+  >
+    Document every cmdlet, binary, script, and WMI class that can be used for Living Off the Foreign Land techniques targeting remote systems.
+  </Card>
+  <Card
+    title="LOLC2"
+    icon="magnifying-glass"
+    href="https://lolc2.github.io/"
+  >
+    Collection of C2 frameworks that leverage legitimate services to evade detection — documents abuse of platforms like cloud storage and SaaS for command and control.
+  </Card>
+  <Card
+    title="Living Off Trusted Sites (LOTS)"
+    icon="triangle-exclamation"
+    href="https://lots-project.com/"
+  >
+    Cataloging how cyber attackers abuse legitimate platforms like GitHub or Google Docs to host malware, C2 infrastructure, or exfiltrate data.
+  </Card>
+  <Card
+    title="lolrmm.io"
+    icon="bug"
+    href="https://lolrmm.io/"
+  >
+    Curated list of Remote Monitoring and Management (RMM) tools that could potentially be abused by threat actors for persistence and lateral movement.
+  </Card>
+  <Card
+    title="Living Off The WebHooks"
+    icon="radar"
+    href="https://lotwebhooks.github.io/"
+  >
+    Community-driven project documenting webhooks that may be exploited for data exfiltration and C2 communications using legitimate services.
+  </Card>
+  <Card
+    title="LOLEXFIL"
+    icon="database"
+    href="https://lolexfil.github.io/"
+  >
+    Reference for data exfiltration methods using trusted tools — documents how legitimate binaries and services can be weaponized for data theft.
+  </Card>
+  <Card
+    title="TrailDiscover"
+    icon="magnifying-glass"
+    href="https://traildiscover.cloud/"
+  >
+    An evolving repository of CloudTrail events with detailed descriptions, MITRE ATT&CK insights, real-world incidents, references, and security implications.
+  </Card>
+  <Card
+    title="PromptIntel"
+    icon="shield"
+    href="https://promptintel.novahunting.ai/"
+  >
+    A collaborative threat intel platform to identify patterns and artifacts indicating potential exploitation or misuse of Large Language Models.
+  </Card>
+  <Card
+    title="IntelOwl"
+    icon="bug"
+    href="https://github.com/intelowlproject/IntelOwl"
+  >
+    Open Source Intelligence solution to get threat intelligence data about a specific file, IP or domain from a single API at scale using many analyzers.
+  </Card>
+</CardGroup>
+
+## Reconnaissance & Enrichment
+
+<CardGroup cols={2}>
+  <Card
+    title="leakix.net"
+    icon="magnifying-glass"
+    href="https://leakix.net/"
+  >
+    Search engine indexing public information and an open reporting platform linked to the results — surfaces exposed services and data leaks across the internet.
+  </Card>
+  <Card
+    title="Polyswarm"
+    icon="shield"
+    href="https://polyswarm.network/"
+  >
+    Launchpad for new technologies and innovative threat detection methods — a decentralized threat intelligence marketplace with diverse engine coverage.
+  </Card>
+  <Card
+    title="Maltiverse"
+    icon="database"
+    href="https://maltiverse.com/search"
+  >
+    Data from more than 100 different threat intelligence sources consolidated into a single platform for IOC lookup and correlation.
+  </Card>
+  <Card
+    title="Inquest Labs"
+    icon="magnifying-glass"
+    href="https://labs.inquest.net/"
+  >
+    Threat intelligence from hundreds of public, private, and internal sources used to develop new file detection and response (FDR) signatures and rules.
+  </Card>
+  <Card
+    title="MetaDefender Cloud"
+    icon="shield"
+    href="https://metadefender.opswat.com/"
+  >
+    Advanced threat detection and prevention platform by OPSWAT — scan files, URLs, and IPs against multiple engines with deep file analysis capabilities.
+  </Card>
+  <Card
+    title="Kaspersky TIP"
+    icon="database"
+    href="https://opentip.kaspersky.com/requests"
+  >
+    Scan files, domains, IP addresses, and URLs for threats, malware, and viruses using Kaspersky's global threat intelligence database.
+  </Card>
+  <Card
+    title="Sucuri SiteCheck"
+    icon="magnifying-glass"
+    href="https://sitecheck.sucuri.net/"
+  >
+    Check websites for known malware, viruses, blacklisting status, website errors, out-of-date software, and malicious code from an external perspective.
+  </Card>
+  <Card
+    title="WhoisXMLAPI"
+    icon="database"
+    href="https://www.whoisxmlapi.com/"
+  >
+    Domain and IP data intelligence for greater enterprise security — provides WHOIS, DNS, threat intelligence, and infrastructure mapping APIs.
+  </Card>
+  <Card
+    title="APIVoid"
+    icon="shield"
+    href="https://www.apivoid.com/"
+  >
+    Threat analysis centered on IP and domain reputation, along with additional services including email verification and URL scanning.
+  </Card>
+  <Card
+    title="IPGeolocation.io"
+    icon="circle-info"
+    href="https://ipgeolocation.io/"
+  >
+    Accurate IP geolocation API and databases with threat intelligence — enrich IP addresses with location, ASN, and threat reputation data.
+  </Card>
+</CardGroup>
